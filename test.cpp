@@ -15,6 +15,15 @@ struct X_Range_Setting {
     }*/
 };
 
+struct X_Range_Setting_: public X_Range_Setting {
+    X_Range_Setting_(float x0, float x1) {
+        // CHECK_GT(x1, x0)
+	is_auto_xrange = false;
+	x_start = x0;
+	x_end = x1;
+    }
+};
+
 struct Cfg {
     union X_Status {
         bool is_auto_x;
@@ -40,9 +49,10 @@ void test_cfg() {
 
     // test2: has start&end setting
     Cfg cfg2;
-    cfg2.x_status.x_setting.is_auto_xrange = false;
-    cfg2.x_status.x_setting.x_start= 1.7;
-    cfg2.x_status.x_setting.x_end = 7.6;
+    // cfg2.x_status.x_setting.is_auto_xrange = false;
+    // cfg2.x_status.x_setting.x_start= 1.7;
+    // cfg2.x_status.x_setting.x_end = 7.6;
+    cfg2.x_status.x_setting = X_Range_Setting_(1.783, 0.704);
 }
 
 int main() {
