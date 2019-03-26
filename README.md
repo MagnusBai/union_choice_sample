@@ -35,7 +35,7 @@ struct X_Range_Setting {
 }
 ```
 处理代码逻辑如下:
-```
+```c++
 switch (x_status.is_auto_x) {
     case true: // 处理用户a选项，具体访问`x_status.is_auto_x`
         ...; break;
